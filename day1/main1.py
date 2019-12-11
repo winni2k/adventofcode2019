@@ -1,8 +1,6 @@
-module_mass = [int(l.rstrip()) for l in open('input.txt').readlines()]
-fuel = []
-for mass in module_mass:
-    mass //= 3
-    mass -= 2
-    fuel.append(mass)
+with open('input.txt') as fh:
+    module_mass = (int(l.rstrip()) for l in fh)
 
-print(f'The final fuel requirement is {sum(fuel)}')
+    fuel = ((mass // 3) - 2 for mass in module_mass)
+
+    print(f'The final fuel requirement is {sum(fuel)}')
